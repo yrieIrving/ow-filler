@@ -1,0 +1,226 @@
+<!--index.wxml-->
+<view class="container"  bindtouchmove="handletouchmove">
+  <view class="userinfo {{isScrollShow ? 'userinfo-item':'' }}" >
+    <image class="widget__arrow" src="/images/jianshao.png" mode="aspectFill"></image>
+    <input class="input" name="userName" placeholder="搜索商品名称"  bindtap="jumpToMyPage" />
+    <image class="widget" src="/images/config.png" mode="aspectFill"></image>
+  </view>
+
+  <!-- 轮播图 -->
+  <swiper class="swiper" circular="true" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <block wx:for-items="{{imgUrls}}" wx:for-index="index" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode='aspectFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+
+       <!-- 轮播图 2-->  
+    <swiper class="swiper2 " circular="false"  indicator-dots="false" autoplay="{{isAutoplay}}"  interval="30000" duration="1000">
+        <block >
+          <swiper-item>
+            <view class='grid'>
+            <view class='itemgrids'>
+                <navigator  wx:for-items="{{gades}}" wx:key="key" url='' class='itemgrid' hovor-class='itemgrid_active'>
+                    <image class='itemgrid_icon' src='{{item.Img}}'></image>
+                    <view class='itemgrid_label'>{{item.title}}</view>
+                </navigator>
+              </view>
+            </view>
+          </swiper-item>
+          <swiper-item>
+          <view class='grid'>
+          <view class='itemgrids'>
+              <navigator url='' class='itemgrid' hovor-class='itemgrid_active'>
+                  <image class='itemgrid_icon' src='/images/jianshao.png'></image>
+                  <view class='itemgrid_label'>闲置教材</view>
+              </navigator>
+                <navigator url='' class='itemgrid' hovor-class='itemgrid_active'>
+                  <image class='itemgrid_icon' src='/images/jianshao.png'></image>
+                  <view class='itemgrid_label'>闲置教材</view>
+              </navigator>
+                <navigator url='' class='itemgrid' hovor-class='itemgrid_active'>
+                  <image class='itemgrid_icon' src='/images/jianshao.png'></image>
+                  <view class='itemgrid_label'>闲置教材</view>
+              </navigator>
+                <navigator url='' class='itemgrid' hovor-class='itemgrid_active'>
+                  <image class='itemgrid_icon' src='/images/jianshao.png'></image>
+                  <view class='itemgrid_label'>闲置教材</view>
+              </navigator>
+                <navigator url='' class='itemgrid' hovor-class='itemgrid_active'>
+                  <image class='itemgrid_icon' src='/images/jianshao.png'></image>
+                  <view class='itemgrid_label'>闲置教材</view>
+              </navigator>
+                <navigator url='' class='itemgrid' hovor-class='itemgrid_active'>
+                  <image class='itemgrid_icon' src='/images/jianshao.png'></image>
+                  <view class='itemgrid_label'>闲置教材</view>
+              </navigator>
+              <navigator url='' class='itemgrid' hovor-class='itemgrid_active'>
+                  <image class='itemgrid_icon' src='/images/jianshao.png'></image>
+                  <view class='itemgrid_label'>闲置教材</view>
+              </navigator>
+              <navigator url='' class='itemgrid' hovor-class='itemgrid_active'>
+                  <image class='itemgrid_icon' src='/images/jianshao.png'></image>
+                  <view class='itemgrid_label'>闲置教材</view>
+              </navigator>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+
+  <view class='consump'>
+    <view class="consumption">
+      <image src="/images/wheel/Wheel2.jpg" mode='aspectFill' />
+
+    </view>
+  </view>
+
+  <view class='recommend' scroll-x="true">
+    <text class='text_recom'>品牌推荐</text>
+    <scroll-view class="image-group" scroll-x="true">
+      <image src="/images/wheel/wheel3.jpg"></image>
+      <image src="/images/wheel/wheel3.jpg"></image>
+      <image src="/images/wheel/wheel3.jpg"></image>
+      <image src="/images/wheel/wheel3.jpg"></image>
+    </scroll-view>
+  </view>
+
+  <view class='championship'>
+    <text class='text_recom'>冠军榜</text>
+    <!-- <view></view> -->
+    <!-- --------------------------------------- -->
+    <view class="swiper-tab">
+      <view class="swiper-tab-list view1 {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">日榜</view>
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">周榜</view>
+      <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">月榜</view>
+      <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">季榜</view>
+      <view class="swiper-tab-list view4 {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">年榜</view>
+    </view>
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+      <swiper-item>
+        <view>
+          <image src="/images/500元电子券奖励-日冠军榜空缺页.png"></image>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view>
+          <image src="/images/10000元现金奖励-周榜冠军空缺页.png"></image>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view>
+          <image src="/images/50000元现金奖励-月冠军榜空缺页.png"></image>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view>
+          <image src="/images/敬请期待-年榜空缺页-.png"></image>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view>敬请期待</view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 最新活动 -->
+  <view class='activity'>
+    <text class='text_recom'>最新活动</text>
+
+    <swiper class="swiper3" circular="false" previous-margin="40rpx" next-margin="40rpx" indicator-dots="false" autoplay="{{isAutoplay}}" interval="3000000" duration="1000" bindchange="swiperChange">
+      <block wx:for-items="{{fontImg}}" wx:for-index="index" wx:key="key">
+        <swiper-item class="swipem">
+          <image src="{{item.img}}" class="slide-image {{itemType == index? 'active':'' }}" mode='aspectFill' />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- <view>123</view> -->
+
+
+
+    <view></view>
+  </view>
+  <!-- 爆款推荐 -->
+  <view class='Blasting'>
+    <text class='text_recom'>爆款推荐</text>
+    <!-- <view></view> -->
+<scroll-view class="image-groups" scroll-x="true">
+      <image src="/images/19E58PICcg2.jpg"></image>
+      <image src="/images/19E58PICcg2.jpg"></image>
+      <image src="/images/19E58PICcg2.jpg"></image>
+      <image src="/images/19E58PICcg2.jpg"></image>
+    </scroll-view>
+
+
+  </view>
+
+  <!-- 最新上市 -->
+
+  <text class='text_listing'>新品上市</text>
+  <view class='Latest_listing'>
+    <!-- 左 -->
+    <view class='left'>
+      <!-- 左上 -->
+      <view class='left_top'>
+        <image src="/images/Consumer/Consumer2.jpg"></image>
+      </view>
+      <!-- 左下 -->
+      <view class='left_botton'>
+        <view class='left_left'>
+          <image src="/images/Consumer/Consumer4.jpg"></image>
+        </view>
+        <view class='left_left_right'>
+          <image src="/images/Consumer/Consumer5.jpg"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 右 -->
+    <view class='right'>
+      <image src="/images/Consumer/Consumer3.jpg"></image>
+    </view>
+  </view>
+
+  <!-- 一键消费商 -->
+  <text class='text_listing'>一键消费商</text>
+
+  <view class='Consumer'>
+
+    <view class='Consumer_left'>
+      <image src="/images/Consumer/Consumer3.jpg"></image>
+      <text>（测试商品以上线价格为准）九阳豆浆机  \n </text>
+      <text class='money'>￥ 13000</text>
+      <text class='sales_volume'>销量51</text>
+    </view>
+
+    <view class='Consumer_right'>
+      <image src="/images/Consumer/Consumer2.jpg"></image>
+      <text>（测试商品以上线价格为准）九阳豆浆机 \n </text>
+      <text class='money'>￥ 17830</text>
+      <text class='sales_volume'>销量51</text>
+    </view>
+
+    <view class='Consumer_left'>
+      <image src="/images/Consumer/Consumer4.jpg"></image>
+      <text>（测试商品以上线价格为准）九阳豆浆机  \n </text>
+      <text class='money'>￥ 11580</text>
+      <text class='sales_volume'>销量51</text>
+    </view>
+
+    <view class='Consumer_right'>
+      <image src="/images/Consumer/Consumer5.jpg"></image>
+      <text>（测试商品以上线价格为准）九阳豆浆机  \n </text>
+      <text class='money'>￥ 14800</text>
+      <text class='sales_volume'>销量51</text>
+    </view>
+
+
+
+
+
+  </view>
+
+
+
+</view>

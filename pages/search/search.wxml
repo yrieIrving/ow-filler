@@ -1,0 +1,7 @@
+<view>
+ <view class="userinfo">
+    <image class="widget__arrow" src="/images/jianshao.png" mode="aspectFill"></image>
+    <input class="input" name="userName" placeholder="搜索商品名称"  bindtap="jumpToMyPage" />
+    <!-- <image class="widget" src="/images/config.png" mode="aspectFill"></image> -->
+  </view>
+</view>
